@@ -6,6 +6,24 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-transition-link`,
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `pfpnthfr4goh`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken:'ATFHe3A7svI01UHejlH5D563hSNQIaSC5LaiDI2FVHs',
+      },
+    },
+    {
+      resolve: `gatsby-remark-images-contentful`,
+      options: {
+        // It's important to specify the maxWidth (in pixels) of
+        // the content container as this plugin uses this as the
+        // base for generating different widths of each image.
+        maxWidth: 590,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,6 +31,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import styled,  { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap');
@@ -84,6 +84,11 @@ li {
   list-style-type: lower-roman;
 }
 `
+
+export const TextBlock = styled.div`
+  padding-top: 1rem;
+`
+
 
 export const size = {
   mobileS: "320px",

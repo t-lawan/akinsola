@@ -5,7 +5,6 @@ import { richTextOptions } from "../utility/richtext";
 
 const Images = props => {
     let content = props.pageContext
-    console.log('PROPS', content )
     return (
         <Layout>
             {documentToReactComponents(content.description.json, richTextOptions)}

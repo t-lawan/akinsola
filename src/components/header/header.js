@@ -5,9 +5,12 @@ import { Link } from "gatsby";
 const HeaderWrapper = styled.header`
     padding: 1em;
     text-align: center;
+    display:flex;
+    flex-direction: row;
+    align-content: flex-start;
 `
 
-const HeaderText = styled.h1`
+const HeaderText = styled.h3`
     
 `
 const Header = (props) => {
@@ -16,7 +19,7 @@ const Header = (props) => {
         <HeaderWrapper>
             <Link to="/">
             <HeaderText>
-                Akinsola Thomas Lawanson
+                akinsola lawanson
             </HeaderText>
             </Link>
 

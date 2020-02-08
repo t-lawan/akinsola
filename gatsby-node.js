@@ -23,6 +23,16 @@ exports.createPages = async ({ graphql, actions }) => {
             description {
               json
             }
+            images {
+              fluid {
+                base64
+                aspectRatio
+                src
+                srcSet
+                sizes
+              }
+            }
+            order
           }
         }
       }
@@ -32,15 +42,13 @@ exports.createPages = async ({ graphql, actions }) => {
   if (result.errors) {
     throw new Error(result.errors)
   }
-  const {
-    allContentfulPage
-  } = result.data
+  const { allContentfulPage } = result.data
 
-  const homeTemplate = path.resolve(`./src/templates/home.js`);
-  const videoTemplate = path.resolve(`./src/templates/video.js`);
-  const linkTemplate = path.resolve(`./src/templates/link.js`);
-  const contactTemplate = path.resolve(`./src/templates/contact.js`);
-  const imagesTemplate = path.resolve(`./src/templates/images.js`);
+  const homeTemplate = path.resolve(`./src/templates/home.js`)
+  const videoTemplate = path.resolve(`./src/templates/video.js`)
+  const linkTemplate = path.resolve(`./src/templates/link.js`)
+  const contactTemplate = path.resolve(`./src/templates/contact.js`)
+  const imagesTemplate = path.resolve(`./src/templates/images.js`)
 
   allContentfulPage.edges.forEach(edge => {
     let template
@@ -64,11 +72,10 @@ exports.createPages = async ({ graphql, actions }) => {
         template = homeTemplate
     }
 
-      createPage({
-        path: edge.node.slug,
-        component: slash(template),
-        context: edge.node,
-      })
+    createPage({
+      path: edge.node.slug,
+      component: slash(template),
+      context: edge.node,
+    })
   })
-
 }

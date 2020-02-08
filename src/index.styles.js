@@ -1,11 +1,13 @@
 import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap');
     * {
   box-sizing: border-box;
 }
 html,
 body {
+  font-family: 'Lora', serif;
   width: 100vw;
   width: 100%;
   height: 100%;
@@ -21,7 +23,7 @@ body {
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    color: inherit;
+    color: black;
     }
   a {
     text-decoration: none;
@@ -71,7 +73,7 @@ p{
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;

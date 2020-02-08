@@ -1,8 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
-
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 const NavbarWrapper = styled.div`
   padding: 1em;
@@ -11,8 +9,11 @@ const NavbarWrapper = styled.div`
 const NavbarTitle = styled.p`
   margin-bottom: 2em;
   &:hover {
-    animation: shake 0.5s; 
-    transform: translate3d(0, 0, 0);
+    color: transparent !important;
+    /* text-shadow: 0 0 10px black; */
+    /* font-style: italic; */
+    /* animation: shake 0.5s;
+    transform: translate3d(0, 0, 0); */
   }
 
   padding-left: 7em;
@@ -28,50 +29,49 @@ const NavbarTitle = styled.p`
   }
 
   @keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  /* 10% { transform: translate(-1px, -2px) rotate(-1deg); } */
-  /* 20% { transform: translate(-3px, 0px) rotate(1deg); } */
-  /* 30% { transform: translate(3px, 2px) rotate(0deg); } */
-  /* 40% { transform: translate(1px, -1px) rotate(1deg); } */
-  50% { transform: translate(-1px, 2px) rotate(2deg); }
-  /* 60% { transform: translate(-3px, 1px) rotate(0deg); } */
-  /* 70% { transform: translate(3px, 1px) rotate(-1deg); } */
-  /* 80% { transform: translate(-1px, -1px) rotate(1deg); } */
-  /* 90% { transform: translate(1px, 2px) rotate(0deg); } */
-  /* 100% { transform: translate(1px, -2px) rotate(-1deg); } */
-}
+    0% {
+      transform: translate(1px, 1px) rotate(0deg);
+    }
+    /* 10% { transform: translate(-1px, -2px) rotate(-1deg); } */
+    /* 20% { transform: translate(-3px, 0px) rotate(1deg); } */
+    /* 30% { transform: translate(3px, 2px) rotate(0deg); } */
+    /* 40% { transform: translate(1px, -1px) rotate(1deg); } */
+    50% {
+      transform: translate(-1px, 2px) rotate(2deg);
+    }
+    /* 60% { transform: translate(-3px, 1px) rotate(0deg); } */
+    /* 70% { transform: translate(3px, 1px) rotate(-1deg); } */
+    /* 80% { transform: translate(-1px, -1px) rotate(1deg); } */
+    /* 90% { transform: translate(1px, 2px) rotate(0deg); } */
+    /* 100% { transform: translate(1px, -2px) rotate(-1deg); } */
+  }
 `
 const Navbar = props => {
   let data = useStaticQuery(
     graphql`
-        {
+      {
         allContentfulPage {
-            edges {
-              node {
-                title
-                slug
-                type
-              }
+          edges {
+            node {
+              title
+              slug
+              type
             }
           }
-    }
+        }
+      }
     `
   )
 
   const links = data.allContentfulPage.edges;
-  console.log(links);
 
   return (
     <NavbarWrapper>
-    {links.map((link, index) => (
-      <NavbarTitle key={index}>
-        <AniLink to={link.node.slug}>
-        {link.node.title}
-
-        </AniLink>
+      {links.map((link, index) => (
+        <NavbarTitle key={index}>
+          <Link to={link.node.slug}>{link.node.title}</Link>
         </NavbarTitle>
-    ))}
-
+      ))}
     </NavbarWrapper>
   )
 }

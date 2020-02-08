@@ -27,7 +27,6 @@ const Column = styled.div`
 
 const Main = styled.main`
   padding: 1em;
-  background: ${props => props.colour};
   min-height: 80vh;
   overflow-y: scroll;
 `
@@ -43,7 +42,7 @@ const Layout = (props) => {
         <Navbar />
       </Column>
       <Column>
-      <Main colour={props.colour}>
+      <Main>
           {props.children}
         </Main>
       </Column>
@@ -55,7 +54,7 @@ const Layout = (props) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  colour: PropTypes.string.isRequired
+  colour: PropTypes.string
 }
 
 export default Layout

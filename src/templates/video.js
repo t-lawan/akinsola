@@ -3,8 +3,8 @@ import Layout from "../components/layout/layout";
 
 const Video = props => {
     return (
-        <Layout colour="rgba(232, 232, 232, 0.7)">
-            <p> Video </p>
+        <Layout>
+            <iframe src="https://player.vimeo.com/video/325285352" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </Layout> 
     )
 }

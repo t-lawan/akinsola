@@ -6,7 +6,8 @@ export class PageModel {
     description;
     images;
     order;
-    constructor(id, title, slug, type, description, images, order) {
+    projectType;
+    constructor(id, title, slug, type, description, images, order, projectType) {
         this.id = id;
         this.title = title;
         this.slug = slug;
@@ -14,7 +15,7 @@ export class PageModel {
         this.description = description;
         this.images = images;
         this.order = order;
-
+        this.projectType = projectType;
     }
 
 }

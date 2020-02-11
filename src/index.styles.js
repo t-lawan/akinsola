@@ -83,6 +83,11 @@ p{
 li {
   list-style-type: lower-roman;
 }
+
+.active {
+  font-style: italic;
+  font-weight: bold;
+}
 `
 
 export const TextBlock = styled.div`

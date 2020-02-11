@@ -33,6 +33,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
             order
+            projectType
           }
         }
       }

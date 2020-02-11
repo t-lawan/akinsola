@@ -11,6 +11,7 @@ export class Convert {
             contentfulModel.description,
             contentfulModel.images,
             contentfulModel.order,
+            contentfulModel.projectType
         );
     }
     static toModelArray = (query, modelConverter) => {

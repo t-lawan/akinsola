@@ -7,6 +7,8 @@ import { Carousel } from "react-responsive-carousel"
 import styled from "styled-components"
 import { Convert } from "../utility/convert"
 import Img from "gatsby-image"
+import SEO from "../components/seo/seo"
+
 const ImageCarousel = styled(Carousel)`
   background: transparent;
   /* min-height: 20vh; */
@@ -27,6 +29,7 @@ const Images = props => {
 
   return (
     <Layout>
+      <SEO title={page.title} />
       {page.images ? (
         <ImageCarousel
           showThumbs={false}

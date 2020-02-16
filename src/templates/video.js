@@ -13,7 +13,6 @@ const Video = props => {
         width="640"
         height="360"
         frameBorder="0"
-        allow="autoplay; fullscreen"
         allowFullScreen
       ></iframe>
       <TextBlock>

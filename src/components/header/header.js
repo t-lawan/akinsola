@@ -18,7 +18,8 @@ const HeaderWrapper = styled.header`
   left: 0;
   right: 0;
   position: fixed;
-  margin-bottom: 10em;
+  z-index: 100;
+  /* margin-bottom: 10em; */
   width: 100%;
 
 `

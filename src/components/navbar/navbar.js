@@ -6,7 +6,7 @@ import { size } from "../../index.styles"
 
 const NavbarWrapper = styled.div`
   padding: 1em;
-  padding-top: 2em;
+  /* padding-top: 2em; */
   overflow-y: scroll;
   position: fixed;
   @media (max-width: ${size.tablet}) {

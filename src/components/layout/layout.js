@@ -13,7 +13,7 @@ const LayoutWrapper = styled.div`
 const Columns = styled.div`
   /* padding: 0.5em; */
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 2fr 4fr;
   grid-column-gap: 3em;
   max-height: 90vh;
   @media (max-width: ${size.tablet}) {

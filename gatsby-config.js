@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Akinsola`,
-    description: `Akinsola Lawanson`,
+    description: `Akinsola Lawanson is software developer and artist based in London.`,
     author: `Akinsola`,
   },
   plugins: [
@@ -31,15 +31,15 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-styled-components`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [`gatsby-remark-responsive-iframe`],
       },
     },
-    `gatsby-plugin-styled-components`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

@@ -6,6 +6,7 @@ import { size } from "../../index.styles"
 
 const NavbarWrapper = styled.div`
   padding: 1em;
+  padding-top: 0;
   /* padding-top: 2em; */
   overflow-y: scroll;
   position: fixed;
@@ -16,7 +17,8 @@ const NavbarWrapper = styled.div`
   }
 `
 const NavbarTitle = styled.p`
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+  font-size: 1rem;
   &:hover {
     color: transparent !important;
   }
@@ -32,7 +34,7 @@ const FilterWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   /* border-bottom: 1px solid black; */
 `
 
@@ -41,6 +43,7 @@ const FilterText = styled.p`
   font-style: ${props => (props.selected ? "italic" : "")};
   font-weight: ${props => (props.selected ? "bold" : "")};
   display: ${props => (props.show ? "" : "none")};
+  font-size: 1rem;
 `
 
 const createRandomPadding = () => {
@@ -154,7 +157,6 @@ class Navbar extends React.Component {
           <NavbarTitle key={ind} randomPadding={createRandomPadding()}>
             <AniLink activeClassName="active" fade to={`${link.slug}`}>
               {link.title.toLowerCase()}
-              {generateProjectIcon(link.projectType)}
             </AniLink>
           </NavbarTitle>
         ))}

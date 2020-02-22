@@ -29,6 +29,8 @@ const State = props => {
               }
               order
               projectType
+              videoLink
+              link
             }
           }
         }
@@ -37,14 +39,11 @@ const State = props => {
   )
 
   if (!props.isLoaded) {
-    let { allContentfulPage } = data;
+    let { allContentfulPage } = data
 
-    let pages = Convert.toModelArray(
-        allContentfulPage,
-        Convert.toPageModel
-    );
+    let pages = Convert.toModelArray(allContentfulPage, Convert.toPageModel)
 
-    props.setPages(pages);
+    props.setPages(pages)
   }
 
   return <></>

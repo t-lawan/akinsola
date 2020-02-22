@@ -82,7 +82,8 @@ p{
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  font-size: 1.15em;
+  font-size: 1rem;
+
 }
 li {
   list-style-type: lower-roman;

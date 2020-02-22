@@ -12,7 +12,7 @@ const Hamburger = styled(HamburgerBoring)`
   }
 `
 const HeaderWrapper = styled.header`
-  padding: 1em;
+  padding: 1em 2em;
   background: rgb(242, 242, 242); 
   top: 0;
   left: 0;
@@ -21,6 +21,11 @@ const HeaderWrapper = styled.header`
   z-index: 100;
   /* margin-bottom: 10em; */
   width: 100%;
+  @media (max-width: ${size.tablet}) {
+  padding: 1em;
+
+
+  }
 
 `
 

@@ -34,6 +34,8 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             order
             projectType
+            videoLink
+            link
           }
         }
       }

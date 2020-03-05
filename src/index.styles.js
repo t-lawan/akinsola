@@ -17,7 +17,7 @@ body {
   height: 100%;
   margin: 0 auto;
   font-style: normal; 
-  background: rgba(242, 242, 242, 0.9); 
+  background: rgba(240,235,255, 0.2); 
   }
   h1,h2,h3,h4,h5,h6 {
     margin-left: 0;
@@ -27,11 +27,11 @@ body {
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    color: black;
+    color: rgb(54,54,82);
     }
   a {
     text-decoration: none;
-    color: black;
+    color: rgb(54,54,82);
   }
   h1 {
   margin-bottom: 1.45rem;
@@ -83,6 +83,7 @@ p{
   padding-right: 0;
   padding-top: 0;
   font-size: 1rem;
+  color: rgb(54,54,82);
 
 }
 li {

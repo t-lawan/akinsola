@@ -13,7 +13,7 @@ const Hamburger = styled(HamburgerBoring)`
 `
 const HeaderWrapper = styled.header`
   padding: 1em 2em;
-  background: rgb(242, 242, 242); 
+
   top: 0;
   left: 0;
   right: 0;

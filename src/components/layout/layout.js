@@ -26,8 +26,8 @@ const Column = styled.div`
   position: relative;
   padding-top: 5rem;
   @media (max-width: ${size.tablet}) {
-    position: initial;
-    margin-top: 2.5rem;
+    position: relative;
+    margin-top: 1.5rem;
     z-index: 0;
   }
   height: 100%;
@@ -49,7 +49,7 @@ const Layout = props => {
         <Column>
           <Navbar />
         </Column>
-        <Column>
+        <Column showInMobile>
           <Main>{props.children}</Main>
         </Column>
       </Columns>

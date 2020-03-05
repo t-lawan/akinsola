@@ -19,8 +19,9 @@ const NavbarWrapper = styled.div`
 const NavbarTitle = styled.p`
   margin-bottom: 1em;
   font-size: 1rem;
+  color: rgb(54,54,82);
   &:hover {
-    color: transparent !important;
+    color: transparent;
   }
   @media (max-width: ${size.tablet}) {
   margin-bottom: 0.5em;

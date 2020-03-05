@@ -6,7 +6,7 @@ import { TextBlock } from "../index.styles";
 import styled from "styled-components"
 
 const VideoContainer = styled.div`
-  text-align: center;
+  /* text-align: center; */
 `
 const Video = props => {
   let pageInfo = Convert.toPageModel(props.pageContext)

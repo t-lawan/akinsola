@@ -28,15 +28,21 @@ const Column = styled.div`
   @media (max-width: ${size.tablet}) {
     position: relative;
     margin-top: 1.5rem;
+    padding-top: 2rem;
     z-index: 0;
   }
   height: 100%;
 `
 
 const Main = styled.main`
-  /* padding: 1em; */
+  padding: 1em;
+  padding-top: 0;
   min-height: 80vh;
   overflow-y: scroll;
+
+  @media (max-width: ${size.tablet}) {
+    padding: 0;
+  }
 `
 
 const Layout = props => {

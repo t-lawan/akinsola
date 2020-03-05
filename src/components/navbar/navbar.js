@@ -156,7 +156,7 @@ class Navbar extends React.Component {
         </FilterWrapper>
         {filteredLinks.map((link, ind) => (
           <NavbarTitle key={ind} randomPadding={createRandomPadding()}>
-            <AniLink activeClassName="active" fade to={`${link.slug}`}>
+            <AniLink activeClassName="active" to={`${link.slug}`}>
               {link.title.toLowerCase()}
             </AniLink>
           </NavbarTitle>

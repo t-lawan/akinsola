@@ -1,13 +1,36 @@
 import styled,  { createGlobalStyle } from "styled-components"
 
+export const size = {
+  mobileS: "320px",
+  mobileM: "375px",
+  mobileL: "425px",
+  tablet: "768px",
+  laptop: "1024px",
+  laptopL: "1440px",
+  desktop: "2560px",
+}
+
 export const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap');
     * {
   box-sizing: border-box;
   ::-webkit-scrollbar {
-    display: none;
+  width: 10px;
+  @media (max-width: ${size.tablet}) {
+    width: 7px;
   }
-  scrollbar-width: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /*  box-shadow: inset 0 0 5px grey;  */
+  /* border-radius: 10px; */
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(54,54,82); 
+}
 }
 html,
 body {
@@ -101,12 +124,3 @@ export const TextBlock = styled.div`
 `
 
 
-export const size = {
-  mobileS: "320px",
-  mobileM: "375px",
-  mobileL: "425px",
-  tablet: "768px",
-  laptop: "1024px",
-  laptopL: "1440px",
-  desktop: "2560px",
-}

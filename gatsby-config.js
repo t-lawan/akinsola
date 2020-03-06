@@ -43,11 +43,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Akinsola`,
+        name: `Akinsola Lawanson`,
         short_name: `akinsola`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `rgb(54,54,82)`,
+        theme_color: `rgb(54,54,82)`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },

@@ -40,7 +40,7 @@ body {
   height: 100%;
   margin: 0 auto;
   font-style: normal; 
-  background: rgba(240,235,255, 0.2); 
+  background: rgb(240, 235, 255); 
   }
   h1,h2,h3,h4,h5,h6 {
     margin-left: 0;

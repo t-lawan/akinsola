@@ -40,7 +40,7 @@ class Background extends React.Component {
       const myX = x + 20 * Math.cos(2 * Math.PI * this.t + angle);
       const myY = y + 20 * Math.sin(2 * Math.PI * this.t + angle);
 
-      p5.ellipse(myX, myY, 5); // draw particle
+      p5.ellipse(myX, myY, 3); // draw particle
     }
   }
 

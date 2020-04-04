@@ -5,9 +5,12 @@ import Navbar from "../navbar/navbar"
 import { GlobalStyle, size } from "../../index.styles"
 import Header from "../header/header"
 import State from "../state/state"
+import Background from "../background/background"
 const LayoutWrapper = styled.div`
   padding: 1em;
+  padding-bottom: 0;
   /* text-align: center; */
+  min-height: 100vh;
 `
 
 const Columns = styled.div`
@@ -50,7 +53,9 @@ const Layout = props => {
     <LayoutWrapper>
       <GlobalStyle />
       <State />
+      <Background />
       <Header />
+
       <Columns>
         <Column>
           <Navbar />

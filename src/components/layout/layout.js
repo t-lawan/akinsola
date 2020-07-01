@@ -53,7 +53,7 @@ const Layout = props => {
     <LayoutWrapper>
       <GlobalStyle />
       <State />
-      <Background />
+      {/* <Background /> */}
       <Header />
 
       <Columns>

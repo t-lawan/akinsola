@@ -3,8 +3,10 @@ import styled from "styled-components"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { connect } from "react-redux"
 import { size } from "../../index.styles"
+import { TOGGLE_NAVBAR } from "../../store/action";
 
 const NavbarWrapper = styled.div`
+  z-index: 100;
   padding: 1em;
   padding-top: 0;
   /* padding-top: 2em; */
@@ -117,6 +119,13 @@ class Navbar extends React.Component {
       })
     }
   }
+
+  toggleNavbar = () => {
+    this.toggleFilter()
+    this.props.toggleNavbar()
+    document.getElementById('main').scrollIntoView()
+  }
+
   render() {
     let filteredLinks
     this.links = this.props.pages.sort((a, b) => {
@@ -155,7 +164,7 @@ class Navbar extends React.Component {
           ))}
         </FilterWrapper>
         {filteredLinks.map((link, ind) => (
-          <NavbarTitle key={ind} randomPadding={createRandomPadding()}>
+          <NavbarTitle onClick={() => this.toggleNavbar()} key={ind} randomPadding={createRandomPadding()}>
             <AniLink activeClassName="active" to={`${link.slug}`}>
               {link.title.toLowerCase()}
             </AniLink>
@@ -173,4 +182,13 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, null)(Navbar)
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleNavbar: () =>
+      dispatch({
+        type: TOGGLE_NAVBAR
+      }),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

@@ -13,7 +13,7 @@ const Hamburger = styled(HamburgerBoring)`
 `
 const HeaderWrapper = styled.header`
   padding: 1em 2em;
-
+  mix-blend-mode: difference;
   top: 0;
   left: 0;
   right: 0;
@@ -38,7 +38,8 @@ const FlexHeader = styled.div`
   align-items: baseline;
 `
 
-const HeaderText = styled.h3``
+const HeaderText = styled.h3`
+`
 const Header = props => {
   return (
     <HeaderWrapper>

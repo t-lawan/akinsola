@@ -61,7 +61,7 @@ const Layout = props => {
           <Navbar />
         </Column>
         <Column showInMobile>
-          <Main>{props.children}</Main>
+          <Main id="main">{props.children}</Main>
         </Column>
       </Columns>
     </LayoutWrapper>

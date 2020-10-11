@@ -128,7 +128,9 @@ class Navbar extends React.Component {
 
   render() {
     let filteredLinks
-    this.links = this.props.pages.sort((a, b) => {
+    this.links = this.props.pages.filter((pg) => {
+      return pg.type !== 'blog'
+    }).sort((a, b) => {
       return a.order - b.order
     })
 
@@ -139,6 +141,7 @@ class Navbar extends React.Component {
         return lk.projectType === this.state.type.id
       })
     }
+
     return (
       <NavbarWrapper show={this.props.showNavbar}>
         <FilterWrapper>

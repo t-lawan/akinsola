@@ -48,6 +48,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { allContentfulPage } = result.data
 
   const homeTemplate = path.resolve(`./src/templates/home.js`)
+  const blogTemplate = path.resolve(`./src/templates/blog.js`)
   const videoTemplate = path.resolve(`./src/templates/video.js`)
   const linkTemplate = path.resolve(`./src/templates/link.js`)
   const contactTemplate = path.resolve(`./src/templates/contact.js`)
@@ -58,6 +59,9 @@ exports.createPages = async ({ graphql, actions }) => {
     switch (edge.node.type) {
       case "home":
         template = homeTemplate
+        break
+      case "blog":
+        template = blogTemplate
         break
       case "video":
         template = videoTemplate

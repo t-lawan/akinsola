@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Akinsola`,
-    description: `Akinsola Lawanson is software developer and artist based in London.`,
+    description: `Akinsola Lawanson is a software developer and artist based in London.`,
     author: `Akinsola`,
   },
   plugins: [

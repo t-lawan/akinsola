@@ -4,8 +4,10 @@ import { Link } from "gatsby"
 import { HamburgerBoring } from "react-animated-burgers"
 import { size } from "../../index.styles"
 import { connect } from "react-redux"
-import * as ActionTypes from '../../store/action';
-const Hamburger = styled(HamburgerBoring)`
+import { toggleNavbar, changeFilterView, toggleModal } from "../../store/action";
+import { FILTER_VIEW } from "../navbar/navbar";
+
+export const Hamburger = styled(HamburgerBoring)`
   display: none;
   @media (max-width: ${size.tablet}) {
     display: ${props => (props.showInMobile ? "inherit" : "none")};
@@ -34,21 +36,38 @@ const FlexHeader = styled.div`
   flex-direction: row;
   align-content: flex-start;
   text-align: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: baseline;
+  @media (max-width: ${size.tablet}) {
+  justify-content: space-between;
+
+  }
 `
 
 const HeaderText = styled.h3`
+  padding-right: 1rem;
+  cursor: pointer;
+    
+  @media (max-width: ${size.tablet}) {
+    font-size: 1rem;
+    display: ${props => (props.showInMobile ? "inherit" : "none")};
+  }
+
 `
 const Header = props => {
+  const changeFilterViewTo = (filter_view) => {
+    props.changeFilterView(filter_view)
+  }
   return (
     <HeaderWrapper>
       <FlexHeader>
-        <Link to="/">
-          <HeaderText>akinsola lawanson</HeaderText>
+        <Link onClick={() => changeFilterViewTo(FILTER_VIEW.ALL)} to="/">
+          <HeaderText showInMobile={true}>akinsola lawanson</HeaderText>
         </Link>
+        <HeaderText showInMobile={false} onClick={() => changeFilterViewTo(FILTER_VIEW.PROJECTS)}>projects</HeaderText>
+        <HeaderText showInMobile={false} onClick={() => changeFilterViewTo(FILTER_VIEW.WEB)}>web</HeaderText>
         <Hamburger
-           toggleButton={props.toggleNavbar}
+          toggleButton={props.toggleModal}
           showInMobile={true}
           isActive={props.showNavbar}
           barColor="black"
@@ -62,15 +81,16 @@ const Header = props => {
 const mapStateToProps = state => {
   return {
     showNavbar: state.showNavbar,
+    filter_view: state.filter_view
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     toggleNavbar: () =>
-      dispatch({
-        type: ActionTypes.TOGGLE_NAVBAR
-      }),
+      dispatch(toggleNavbar()),
+      toggleModal: () => dispatch(toggleModal()),
+      changeFilterView: (filter_view) => dispatch(changeFilterView(filter_view)),
   }
 }
 

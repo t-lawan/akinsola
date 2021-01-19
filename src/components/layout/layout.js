@@ -6,6 +6,7 @@ import { GlobalStyle, size } from "../../index.styles"
 import Header from "../header/header"
 import State from "../state/state"
 import Background from "../background/background"
+import Modal from "../modal/modal";
 const LayoutWrapper = styled.div`
   padding: 1em;
   padding-bottom: 0;
@@ -53,12 +54,13 @@ const Layout = props => {
     <LayoutWrapper>
       <GlobalStyle />
       <State />
+      <Modal />
       {/* <Background /> */}
       <Header />
 
       <Columns>
         <Column>
-          <Navbar />
+          <Navbar showInMobile={false} />
         </Column>
         <Column showInMobile>
           <Main id="main">{props.children}</Main>

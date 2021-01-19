@@ -1,10 +1,13 @@
 import { createStore } from "redux"
 import * as ActionTypes from "./action"
+import { FILTER_VIEW } from "../components/navbar/navbar";
 
 const initalState = {
   pages: [],
   isLoaded: false,
   showNavbar: false,
+  showModal: false,
+  filter_view: FILTER_VIEW.ALL
 }
 
 const reducer = (state = initalState, action) => {
@@ -28,6 +31,14 @@ const reducer = (state = initalState, action) => {
     case ActionTypes.TOGGLE_NAVBAR:
       return Object.assign({}, state, {
         showNavbar: !state.showNavbar,
+      })
+    case ActionTypes.TOGGLE_MODAL:
+      return Object.assign({}, state, {
+        showModal: !state.showModal,
+      })
+    case ActionTypes.CHANGE_FILTER_VIEW:
+      return Object.assign({}, state, {
+        filter_view: action.filter_view,
       })
     default:
       return state

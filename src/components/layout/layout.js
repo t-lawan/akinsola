@@ -5,7 +5,6 @@ import Navbar from "../navbar/navbar"
 import { GlobalStyle, size } from "../../index.styles"
 import Header from "../header/header"
 import State from "../state/state"
-import Background from "../background/background"
 import Modal from "../modal/modal";
 const LayoutWrapper = styled.div`
   padding: 1em;

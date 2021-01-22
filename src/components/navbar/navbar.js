@@ -55,19 +55,16 @@ class Navbar extends React.Component {
 
   render() {
     let filteredLinks
-    this.links = this.props.pages
-      .filter(pg => {
-        return pg.type !== "blog"
-      })
-      .sort((a, b) => {
-        return a.order - b.order
-      })
+
+    this.links = this.props.navbar_links.sort((a, b) => {
+      return a.order - b.order
+    })
 
     filteredLinks = this.links
 
     if (this.props.filter_view !== "all") {
       filteredLinks = this.links.filter(lk => {
-        return lk.projectType === this.props.filter_view
+        return lk.page.type === this.props.filter_view
       })
     }
 
@@ -78,7 +75,7 @@ class Navbar extends React.Component {
             <NavbarLink
               onClick={() => this.props.toggleModal()}
               activeClassName="active"
-              to={`/${link.slug}`}
+              to={`/${link.page.slug}`}
             >
               {link.title.toLowerCase()}
             </NavbarLink>
@@ -94,6 +91,7 @@ const mapStateToProps = state => {
     pages: state.pages,
     showNavbar: state.showNavbar,
     filter_view: state.filter_view,
+    navbar_links: state.navbar_links,
   }
 }
 

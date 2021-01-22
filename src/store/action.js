@@ -1,10 +1,32 @@
 export const SET_PAGES = "SET_PAGES";
+export const SET_NAVBAR_LINKS = "SET_NAVBAR_LINKS";
 export const IS_LOADED = "IS_LOADED";
 export const TOGGLE_MODAL = "TOGGLE_MODAL";
 export const SHOW_NAVBAR = "SHOW_NAVBAR";
 export const HIDE_NAVBAR = "HIDE_NAVBAR";
 export const TOGGLE_NAVBAR = "TOGGLE_NAVBAR";
 export const CHANGE_FILTER_VIEW = "CHANGE_FILTER_VIEW";
+
+
+export const setPages = (pages) => {
+    return {
+        type:SET_PAGES,
+        pages: pages
+    }
+}
+
+export const setNavbarLinks = (navbar_links) => {
+    return {
+        type:SET_NAVBAR_LINKS,
+        navbar_links: navbar_links
+    }
+}
+
+export const isLoaded = () => {
+    return {
+        type: IS_LOADED
+    }
+}
 
 export const changeFilterView = (filter_view) => {
     return {
@@ -20,7 +42,6 @@ export const toggleNavbar = () => {
 }
 
 export const toggleModal = () => {
-    console.log('toggleModal CALLED')
     return {
         type: TOGGLE_MODAL
     }

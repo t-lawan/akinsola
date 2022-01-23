@@ -4,6 +4,7 @@ import { FILTER_VIEW } from "../components/navbar/navbar";
 
 const initalState = {
   pages: [],
+  page_info: null,
   navbar_links: [],
   isLoaded: false,
   showNavbar: false,
@@ -20,6 +21,10 @@ const reducer = (state = initalState, action) => {
     case ActionTypes.SET_NAVBAR_LINKS:
       return Object.assign({}, state, {
         navbar_links: action.navbar_links,
+      })
+    case ActionTypes.SET_PAGE_INFO:
+      return Object.assign({}, state, {
+        page_info: action.page_info,
       })
     case ActionTypes.IS_LOADED:
       return Object.assign({}, state, {

@@ -55,10 +55,7 @@ class Navbar extends React.Component {
 
   render() {
     let filteredLinks
-
-    this.links = this.props.navbar_links.sort((a, b) => {
-      return a.order - b.order
-    })
+    this.links = this.props.page_info.navbar_list;
 
     filteredLinks = this.links
 
@@ -92,6 +89,7 @@ const mapStateToProps = state => {
     showNavbar: state.showNavbar,
     filter_view: state.filter_view,
     navbar_links: state.navbar_links,
+    page_info: state.page_info
   }
 }
 

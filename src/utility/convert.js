@@ -1,6 +1,7 @@
 import { PageModel } from "../models/PageModel";
 import { NavbarLinkModel } from "../models/NavbarLinkModel";
 import { PageLinkModel } from "../models/PageLinkModel";
+import { PageInfoModel } from "../models/PageInfoModel";
 
 export class Convert {
 
@@ -16,6 +17,22 @@ export class Convert {
             contentfulModel.projectType,
             contentfulModel.videoLink
         );
+    }
+
+    static toPageInfoModel = contentfulModel => {
+        let navbarList = []
+        if(contentfulModel.navbarList){
+            contentfulModel.navbarList.forEach((navbar) => {
+                let nv = new NavbarLinkModel(navbar.contentful_id, navbar.title, 0, navbar.page);
+                navbarList.push(nv);
+            });
+        }
+
+        return new PageInfoModel(
+            contentfulModel.contentful_id,
+            contentfulModel.title,
+            navbarList
+        )
     }
 
     static toNavbarLinkModel = contentfulModel => {

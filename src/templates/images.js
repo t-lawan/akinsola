@@ -21,7 +21,11 @@ const ImageCarousel = styled(Carousel)`
 `
 
 const Image = styled(Img)`
-  /* max-height: 40vh; */
+  max-height: 45vh;
+  img {
+    object-fit: contain !important;
+
+  }
 `
 const Images = props => {
   let content = props.pageContext
@@ -38,6 +42,7 @@ const Images = props => {
           showStatus={false}
           centerMode={false}
           swipeable={false}
+          stopOnHover={true}
           dynamicHeight={false}
           infiniteLoop={true}
           autoPlay={true}

@@ -14,7 +14,7 @@ export const Hamburger = styled(HamburgerBoring)`
   }
 `
 const HeaderWrapper = styled.header`
-  padding: 1em 2em;
+  padding: 1rem 1rem;
   mix-blend-mode: difference;
   top: 0;
   left: 0;

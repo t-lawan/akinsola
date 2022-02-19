@@ -29,7 +29,7 @@ const ModalHamburger = styled(Hamburger)`
 const FilterWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    padding: 1rem;
+    padding: 1rem 0rem;
 `
 
 const FilterText = styled.h3`

@@ -63,6 +63,7 @@ const State = (props) => {
 									title
 									slug
 									projectType
+									type
 								}
 								title
 							}

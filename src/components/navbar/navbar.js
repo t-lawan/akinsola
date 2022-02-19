@@ -12,7 +12,7 @@ export const FILTER_VIEW = {
 }
 const NavbarWrapper = styled.div`
   z-index: 100;
-  padding: 1em;
+  /* padding: 1em; */
   padding-top: 0;
   /* padding-top: 2em; */
   overflow-y: scroll;
@@ -33,13 +33,13 @@ const NavbarTitle = styled.p`
   }
   @media (max-width: ${size.tablet}) {
     margin-bottom: 0.5em;
-    color: rgb(240, 235, 255);
+    color: ${props => props.reverse ? `rgb(54,54,82)` : `rgb(240, 235, 255)`};
   }
 `
 
 const NavbarLink = styled(Link)`
   @media (max-width: ${size.tablet}) {
-    color: rgb(240, 235, 255);
+    color: ${props => props.reverse ? `rgb(54,54,82))` : `rgb(240, 235, 255)`};
   }
 `
 
@@ -56,23 +56,23 @@ class Navbar extends React.Component {
   render() {
     let filteredLinks
     this.links = this.props.page_info.navbar_list;
-
     filteredLinks = this.links
 
     if (this.props.filter_view !== "all") {
       filteredLinks = this.links.filter(lk => {
-        return lk.page.type === this.props.filter_view
+        return lk.page.projectType === this.props.filter_view
       })
     }
 
     return (
       <NavbarWrapper show={this.props.showInMobile}>
         {filteredLinks.map((link, ind) => (
-          <NavbarTitle key={ind}>
+          <NavbarTitle reverse={this.props.reverse} key={ind}>
             <NavbarLink
               onClick={() => this.props.toggleModal()}
               activeClassName="active"
               to={`/${link.page.slug}`}
+              reverse={this.props.reverse}
             >
               {link.title.toLowerCase()}
             </NavbarLink>

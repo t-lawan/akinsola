@@ -15,7 +15,7 @@ const NavbarWrapper = styled.div`
   /* padding: 1em; */
   padding-top: 0;
   /* padding-top: 2em; */
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   position: fixed;
   display: block;
   @media (max-width: ${size.tablet}) {

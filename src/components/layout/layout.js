@@ -25,7 +25,7 @@ const Columns = styled.div`
 `
 
 const Column = styled.div`
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   position: relative;
   padding-top: 5rem;
   @media (max-width: ${size.tablet}) {
@@ -41,7 +41,7 @@ const Main = styled.main`
   padding: 1em;
   padding-top: 0;
   min-height: 80vh;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 
   @media (max-width: ${size.tablet}) {
     padding: 0;

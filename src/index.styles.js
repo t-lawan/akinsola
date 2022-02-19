@@ -14,7 +14,8 @@ export const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap');
     * {
   box-sizing: border-box;
-  ::-webkit-scrollbar {
+      ${'' /* overflow-y: hidden; */}
+      ::-webkit-scrollbar {
   width: 10px;
   @media (max-width: ${size.tablet}) {
     width: 7px;

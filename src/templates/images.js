@@ -21,7 +21,7 @@ const ImageCarousel = styled(Carousel)`
 `
 
 const Image = styled(Img)`
-  max-height: 45vh;
+  max-height: 50vh;
   img {
     object-fit: contain !important;
 

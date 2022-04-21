@@ -64,7 +64,7 @@ const Header = props => {
         <Link onClick={() => changeFilterViewTo(FILTER_VIEW.ALL)} to="/">
           <HeaderText showInMobile={true}>akinsola lawanson</HeaderText>
         </Link>
-        <HeaderText showInMobile={false} onClick={() => changeFilterViewTo(FILTER_VIEW.PROJECTS)}>projects</HeaderText>
+        <HeaderText showInMobile={false} onClick={() => changeFilterViewTo(FILTER_VIEW.PROJECTS)}>art</HeaderText>
         <HeaderText showInMobile={false} onClick={() => changeFilterViewTo(FILTER_VIEW.WEB)}>web</HeaderText>
         <Hamburger
           toggleButton={props.toggleModal}

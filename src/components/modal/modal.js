@@ -63,7 +63,7 @@ const Modal = props => {
       />
       <FilterWrapper>
             <FilterText onClick={() => changeFilterViewTo(FILTER_VIEW.ALL)}> akinsola</FilterText>
-          <FilterText onClick={() => changeFilterViewTo(FILTER_VIEW.PROJECTS)}> projects</FilterText>
+          <FilterText onClick={() => changeFilterViewTo(FILTER_VIEW.PROJECTS)}> art</FilterText>
           <FilterText onClick={() => changeFilterViewTo(FILTER_VIEW.WEB)}> web</FilterText>
       </FilterWrapper>
       <Navbar showInMobile={true} />

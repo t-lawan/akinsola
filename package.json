@@ -20,7 +20,7 @@
     "gatsby-remark-responsive-iframe": "^2.2.32",
     "gatsby-source-contentful": "^2.1.71",
     "gatsby-source-filesystem": "^2.1.40",
-    "gatsby-transformer-remark": "^2.6.50",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.3.7",
     "gsap": "^3.0.4",
     "p5": "^1.0.0",

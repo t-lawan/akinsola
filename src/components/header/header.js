@@ -65,7 +65,7 @@ const Header = props => {
           <HeaderText showInMobile={true}>akinsola lawanson</HeaderText>
         </Link>
         <HeaderText showInMobile={false} onClick={() => changeFilterViewTo(FILTER_VIEW.PROJECTS)}>art</HeaderText>
-        <HeaderText showInMobile={false} onClick={() => changeFilterViewTo(FILTER_VIEW.WEB)}>web</HeaderText>
+        <HeaderText showInMobile={false} onClick={() => changeFilterViewTo(FILTER_VIEW.WEB)}>tech</HeaderText>
         <Hamburger
           toggleButton={props.toggleModal}
           showInMobile={true}

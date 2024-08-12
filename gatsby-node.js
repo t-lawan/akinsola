@@ -21,26 +21,20 @@ exports.createPages = async ({ graphql, actions }) => {
             type
             contentful_id
             description {
-              json
+              raw
             }
-            images {
-              fluid {
-                base64
-                aspectRatio
-                src
-                srcSet
-                sizes
-              }
-            }
-            order
             projectType
             videoLink
             link
+            images {
+              gatsbyImageData
+            }
           }
         }
       }
     }
   `)
+  
 
   if (result.errors) {
     throw new Error(result.errors)
@@ -54,7 +48,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const contactTemplate = path.resolve(`./src/templates/contact.js`)
   const imagesTemplate = path.resolve(`./src/templates/images.js`)
 
-  allContentfulPage.edges.forEach(edge => {
+  allContentfulPage.edges.forEach((edge) => {
     let template
     switch (edge.node.type) {
       case "home":

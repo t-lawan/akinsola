@@ -23,7 +23,7 @@ export class Convert {
         let navbarList = []
         if(contentfulModel.navbarList){
             contentfulModel.navbarList.forEach((navbar) => {
-                let nv = new NavbarLinkModel(navbar.contentful_id, navbar.title, 0, navbar.page);
+                let nv = new NavbarLinkModel(navbar.contentful_id, navbar.title, navbar.page);
                 navbarList.push(nv);
             });
         }
@@ -40,9 +40,19 @@ export class Convert {
         return new NavbarLinkModel(
             contentfulModel.contentful_id,
             contentfulModel.title,
-            contentfulModel.order,
             page,
         )
+    }
+
+    static toNavbarLinkList = data => {
+        let navbar_links = []
+
+        data.forEach((navbar) => {
+            let nv = Convert.toNavbarLinkModel(navbar);
+            navbar_links.push(nv);
+        });
+
+        return navbar_links
     }
     static toModelArray = (query, modelConverter) => {
         const modelArray = []

@@ -36,8 +36,9 @@ const Video = props => {
 
       <TextBlock>
         {pageInfo.description
-          ? documentToReactComponents(pageInfo.description.json)
+          ? documentToReactComponents(JSON.parse(pageInfo.description.raw))
           : null}
+
       </TextBlock>
     </Layout>
   )

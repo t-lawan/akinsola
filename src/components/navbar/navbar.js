@@ -1,10 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { connect } from "react-redux"
 import { size } from "../../index.styles"
 import { TOGGLE_NAVBAR, toggleModal } from "../../store/action"
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
+import { Convert } from "../../utility/convert"
 export const FILTER_VIEW = {
   WEB: "web",
   PROJECTS: "portfolio",
@@ -12,15 +12,13 @@ export const FILTER_VIEW = {
 }
 const NavbarWrapper = styled.div`
   z-index: 100;
-  /* padding: 1em; */
   padding-top: 0;
-  /* padding-top: 2em; */
-  /* overflow-y: scroll; */
-  position: fixed;
   display: block;
   @media (max-width: ${size.tablet}) {
     position: initial;
-    display: ${props => (props.show ? "inherit" : "none")};
+    /* background-color: red; */
+    display: ${(props) => (props.$showInMobile ? "inherit" : "none")};
+    /* color: ${(props) => (props.showInMobile ? "red" : "black")}; */
     /* border-bottom: 1px solid black; */
   }
 `
@@ -33,70 +31,59 @@ const NavbarTitle = styled.p`
   }
   @media (max-width: ${size.tablet}) {
     margin-bottom: 0.5em;
-    color: ${props => props.reverse ? `rgb(54,54,82)` : `rgb(240, 235, 255)`};
+    color: ${(props) =>
+      props.$reverse ? `rgb(54,54,82)` : `rgb(240, 235, 255)`};
   }
 `
 
 const NavbarLink = styled(Link)`
   @media (max-width: ${size.tablet}) {
-    color: ${props => props.reverse ? `rgb(54,54,82))` : `rgb(240, 235, 255)`};
+    color: ${(props) =>
+      props.$reverse ? `rgb(54,54,82))` : `rgb(240, 235, 255)`};
   }
 `
 
-class Navbar extends React.Component {
-  links
+const Navbar = ({
+  showInMobile,
+  $reverse,
+}) => {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      showFilter: false,
+  let data = useStaticQuery(graphql`
+    {
+      contentfulPageInfo {
+        navbarList {
+          contentful_id
+          page {
+            contentful_id
+            title
+            slug
+            projectType
+            type
+          }
+          title
+        }
+      }
     }
-  }
+  `)
 
-  render() {
-    let filteredLinks
-    this.links = this.props.page_info.navbar_list;
-    filteredLinks = this.links
-
-    if (this.props.filter_view !== "all") {
-      filteredLinks = this.links.filter(lk => {
-        return lk.page.projectType === this.props.filter_view
-      })
-    }
-
-    return (
-      <NavbarWrapper show={this.props.showInMobile}>
-        {filteredLinks.map((link, ind) => (
-          <NavbarTitle reverse={this.props.reverse} key={ind}>
-            <NavbarLink
-              onClick={() => this.props.toggleModal()}
-              activeClassName="active"
-              to={`/${link.page.slug}`}
-              reverse={this.props.reverse}
-            >
-              {link.title.toLowerCase()}
-            </NavbarLink>
-          </NavbarTitle>
-        ))}
-      </NavbarWrapper>
-    )
-  }
+  const links = Convert.toNavbarLinkList(data.contentfulPageInfo.navbarList)
+  return (
+    <NavbarWrapper $showInMobile={showInMobile}>
+      {links.map((link, ind) => (
+        <NavbarTitle $reverse={$reverse} key={ind}>
+          <NavbarLink
+            activeClassName="active"
+            to={`/${link.page.slug}`}
+            $reverse={$reverse}
+          >
+            {link.title.toLowerCase()}
+          </NavbarLink>
+        </NavbarTitle>
+      ))}
+    </NavbarWrapper>
+  )
 }
 
-const mapStateToProps = state => {
-  return {
-    pages: state.pages,
-    showNavbar: state.showNavbar,
-    filter_view: state.filter_view,
-    navbar_links: state.navbar_links,
-    page_info: state.page_info
-  }
-}
 
-const mapDispatchToProps = dispatch => {
-  return {
-    toggleModal: () => dispatch(toggleModal()),
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
+export default Navbar

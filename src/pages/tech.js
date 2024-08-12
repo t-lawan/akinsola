@@ -4,7 +4,8 @@ import Seo from '../components/seo/seo';
 import styled from 'styled-components'
 import { size } from "../index.styles";
 import { connect } from "react-redux"
-import Navbar from "../components/navbar/navbar";
+import Navbar, { FILTER_VIEW } from "../components/navbar/navbar";
+import { changeFilterView } from "../store/action";
 
 const MobileIndexWrapper = styled.div`
   display: none;
@@ -13,8 +14,12 @@ const MobileIndexWrapper = styled.div`
   }
 `
 
-const IndexPage = (props) => {
-  
+const TechPage = (props) => {
+
+  if(props.filter_view !== FILTER_VIEW.WEB){
+    props.changeFilterView(FILTER_VIEW.WEB)
+  }
+   
   return (
   <Layout>
      <Seo title="+" />
@@ -25,8 +30,15 @@ const IndexPage = (props) => {
 )}
 const mapStateToProps = state => {
   return {
-    page_info: state.page_info
+    page_info: state.page_info,
+    filter_view: state.filter_view
   }
 }
 
-export default connect(mapStateToProps, null)(IndexPage)
+const mapDispatchToProps = dispatch => {
+  return {
+      changeFilterView: (filter_view) => dispatch(changeFilterView(filter_view)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TechPage)

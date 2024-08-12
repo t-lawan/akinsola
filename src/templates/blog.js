@@ -11,7 +11,7 @@ const Blog = props => {
   return (
     <Layout>
       <SEO title={page.title} />
-      {documentToReactComponents(page.description.json, richTextOptions)}
+      {documentToReactComponents(JSON.parse(content.description.raw), richTextOptions)}
     </Layout>
   )
 }

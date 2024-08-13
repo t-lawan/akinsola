@@ -10,6 +10,11 @@ export const size = {
   desktop: "2560px",
 }
 
+export const Colours = {
+  dark_purple: `rgb(54,54,82)`,
+  light_purple: `rgb(240, 235, 255)`,
+
+}
 export const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap');
     * {
@@ -30,7 +35,7 @@ export const GlobalStyle = createGlobalStyle`
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(54,54,82); 
+  background: ${Colours.dark_purple}; 
 }
 }
 html,
@@ -51,11 +56,11 @@ body {
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    color: rgb(54,54,82);
+    color: ${Colours.dark_purple};
     }
   a {
     text-decoration: none;
-    color: rgb(54,54,82);
+    color: ${Colours.dark_purple};
   }
   h1 {
   margin-bottom: 1.45rem;

@@ -1,10 +1,9 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
-import { connect } from "react-redux"
-import { size } from "../../index.styles"
-import { TOGGLE_NAVBAR, toggleModal } from "../../store/action"
+import { Colours, size } from "../../index.styles"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { Convert } from "../../utility/convert"
+
 export const FILTER_VIEW = {
   WEB: "web",
   PROJECTS: "portfolio",
@@ -15,11 +14,16 @@ const NavbarWrapper = styled.div`
   padding-top: 0;
   display: block;
   @media (max-width: ${size.tablet}) {
-    position: initial;
-    /* background-color: red; */
+    position: absolute;
+    width: 70vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0.5rem;
+    background-color: ${Colours.dark_purple};
+    top: 0;
+    left: 0;
+    /* position: relative; */
     display: ${(props) => (props.$showInMobile ? "inherit" : "none")};
-    /* color: ${(props) => (props.showInMobile ? "red" : "black")}; */
-    /* border-bottom: 1px solid black; */
   }
 `
 const NavbarTitle = styled.p`
@@ -32,14 +36,14 @@ const NavbarTitle = styled.p`
   @media (max-width: ${size.tablet}) {
     margin-bottom: 0.5em;
     color: ${(props) =>
-      props.$reverse ? `rgb(54,54,82)` : `rgb(240, 235, 255)`};
+      props.$reverse ? Colours.dark_purple : Colours.light_purple};
   }
 `
 
 const NavbarLink = styled(Link)`
   @media (max-width: ${size.tablet}) {
     color: ${(props) =>
-      props.$reverse ? `rgb(54,54,82))` : `rgb(240, 235, 255)`};
+      props.$reverse ? Colours.light_purple : Colours.dark_purple};
   }
 `
 

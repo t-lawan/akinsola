@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { size } from "../../index.styles"
+import { Colours, size } from "../../index.styles"
 import { connect } from "react-redux"
 import { toggleNavbar, changeFilterView, toggleModal } from "../../store/action"
 import Navbar, { FILTER_VIEW } from "../navbar/navbar"
@@ -11,11 +11,12 @@ export const OnlyMobileWrapper = styled.div`
   display: none;
   @media (max-width: ${size.tablet}) {
     display: inherit;
+    /* z-index: 200; */
   }
 `
 
 const StyledHamburger = styled(Hamburger)`
-  z-index: 100;
+  z-index: 300;
 `
 
 const NavbarWrapper = styled.div`
@@ -23,6 +24,7 @@ const NavbarWrapper = styled.div`
   padding: 1rem;
   @media (max-width: ${size.tablet}) {
     display: inherit;
+    width: 70%;
   }
 `
 
@@ -33,11 +35,11 @@ const HeaderWrapper = styled.header`
   left: 0;
   right: 0;
   position: fixed;
-  z-index: 100;
+  /* z-index: 300; */
   /* margin-bottom: 10em; */
   width: 100%;
   @media (max-width: ${size.tablet}) {
-    padding: 1em;
+    padding: 0rem;
   }
 `
 
@@ -73,7 +75,7 @@ const Header = (props) => {
             <HeaderText $showInMobile={true}>akinsola lawanson</HeaderText>
           </Link>
           <OnlyMobileWrapper>
-            <StyledHamburger toggled={isOpen} toggle={setOpen} />
+            <StyledHamburger size={24} color={Colours.dark_purple} toggled={isOpen} toggle={setOpen} />
             {/* {isOpen && <Navbar />} */}
           </OnlyMobileWrapper>
         </FlexHeader>

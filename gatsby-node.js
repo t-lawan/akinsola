@@ -22,6 +22,10 @@ exports.createPages = async ({ graphql, actions }) => {
             contentful_id
             description {
               raw
+              references {
+                url
+                contentful_id
+              }
             }
             projectType
             videoLink
@@ -34,7 +38,6 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  
 
   if (result.errors) {
     throw new Error(result.errors)

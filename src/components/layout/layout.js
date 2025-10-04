@@ -36,6 +36,14 @@ const Column = styled.div`
   height: 100%;
 `
 
+const LeftColumn = styled(Column)`
+overflow-y: hidden;
+position: sticky;
+  @media (max-width: ${size.tablet}) {
+    display: ${props => (props.$showInMobile ? "block" : "none")};
+  }
+`
+
 const Main = styled.main`
   padding: 1em;
   padding-top: 0;
@@ -56,9 +64,9 @@ const Layout = props => {
       <Header />
 
       <Columns>
-        <Column>
+        <LeftColumn>
           <Navbar $showInMobile={false} />
-        </Column>
+        </LeftColumn>
         <Column $showInMobile>
           <Main id="main">{props.children}</Main>
         </Column>

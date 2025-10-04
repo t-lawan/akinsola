@@ -11,7 +11,7 @@ export const OnlyMobileWrapper = styled.div`
   display: none;
   @media (max-width: ${size.tablet}) {
     display: inherit;
-    /* z-index: 200; */
+    z-index: 1000; 
   }
 `
 
@@ -23,8 +23,13 @@ const NavbarWrapper = styled.div`
   display: none;
   padding: 1rem;
   @media (max-width: ${size.tablet}) {
+    position: fixed;
+    width: 70vw;
+    height: 100vh;
     display: inherit;
-    width: 70%;
+        top: 0;
+    left: 0;
+    z-index: 200;
   }
 `
 

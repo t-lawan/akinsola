@@ -13,8 +13,9 @@ const NavbarWrapper = styled.div`
   z-index: 100;
   padding-top: 0;
   display: block;
+  position: fixed;
   @media (max-width: ${size.tablet}) {
-    position: absolute;
+    position: fixed;
     width: 70vw;
     height: 100vh;
     margin: 0;

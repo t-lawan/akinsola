@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Navbar from "../navbar/navbar"
 import { GlobalStyle, size } from "../../index.styles"
 import Header from "../header/header"
+import Seo from "../seo/seo"
 const LayoutWrapper = styled.div`
   padding: 1em;
   padding-bottom: 0;
@@ -50,6 +51,7 @@ const Layout = props => {
   return (
     <LayoutWrapper>
       <GlobalStyle />
+      <Seo title={props.title} description={props.description} />
       {/* <Background /> */}
       <Header />
 

@@ -122,7 +122,22 @@ li {
 .active {
   font-style: italic;
   font-weight: bold;
+    animation: rainbow 2s ease-in infinite alternate;
 }
+
+  .underline {
+
+  }
+
+  @keyframes rainbow {
+    0% {
+      color: ${Colours.dark_purple};
+    }
+    100% {
+      color: ${Colours.light_purple};
+    }
+  }
+
 `
 
 export const TextBlock = styled.div`

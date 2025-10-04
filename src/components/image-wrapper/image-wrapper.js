@@ -3,7 +3,12 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { richTextOptions } from "../../utility/richtext"
 import styled from "styled-components"
-const StyledImageWrapper = styled.div``
+import { Colours } from "../../index.styles"
+const StyledImageWrapper = styled.div`
+  .gatsby-image-wrapper {
+    border: 2px solid ${Colours.dark_purple};
+}
+`
 
 const Caption = styled.p`
   margin-top: 0.5rem;

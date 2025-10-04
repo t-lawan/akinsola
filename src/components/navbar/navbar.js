@@ -35,15 +35,14 @@ const NavbarTitle = styled.p`
   }
   @media (max-width: ${size.tablet}) {
     margin-bottom: 0.5em;
-    color: ${(props) =>
-      props.$reverse ? Colours.dark_purple : Colours.light_purple};
   }
 `
 
 const NavbarLink = styled(Link)`
   @media (max-width: ${size.tablet}) {
     color: ${(props) =>
-      props.$reverse ? Colours.light_purple : Colours.dark_purple};
+      props.$reverse ? Colours.light_purple : Colours.dark_purple
+    };
   }
 `
 
@@ -61,8 +60,6 @@ const Navbar = ({
             contentful_id
             title
             slug
-            projectType
-            type
           }
           title
         }

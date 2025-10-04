@@ -41,6 +41,7 @@ export const GlobalStyle = createGlobalStyle`
 html,
 body {
   font-family: 'Lora', serif;
+  font-display: block;
   width: 100vw;
   width: 100%;
   height: 100%;

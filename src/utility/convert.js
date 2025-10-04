@@ -10,12 +10,8 @@ export class Convert {
             contentfulModel.contentful_id,
             contentfulModel.title,
             contentfulModel.slug,
-            contentfulModel.type,
             contentfulModel.description,
-            contentfulModel.images,
-            contentfulModel.order,
-            contentfulModel.projectType,
-            contentfulModel.videoLink
+            contentfulModel.contentList
         );
     }
 
@@ -36,7 +32,7 @@ export class Convert {
     }
 
     static toNavbarLinkModel = contentfulModel => {
-        let page = new PageLinkModel(contentfulModel.page.contentful_id, contentfulModel.page.title, contentfulModel.page.projectType, contentfulModel.page.slug)
+        let page = new PageLinkModel(contentfulModel.page.contentful_id, contentfulModel.page.title, contentfulModel.page.slug)
         return new NavbarLinkModel(
             contentfulModel.contentful_id,
             contentfulModel.title,

@@ -13,29 +13,63 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      allContentfulPage {
-        edges {
-          node {
-            title
-            slug
-            type
+allContentfulPage {
+    edges {
+      node {
+        title
+        slug
+        contentful_id
+        description {
+          raw
+          references {
+            url
             contentful_id
-            description {
-              raw
-              references {
-                url
-                contentful_id
+          }
+        }
+        link
+        contentList {
+          item {
+            ... on ContentfulImage {
+              id
+              image {
+                gatsbyImageData
+                filename
               }
             }
-            projectType
-            videoLink
-            link
-            images {
-              gatsbyImageData
+            ... on ContentfulText {
+              id
+              text {
+                raw
+              }
+            }
+            ... on ContentfulVideo {
+              id
+              url
+            }
+          }
+          item {
+            ... on ContentfulImage {
+              id
+              image {
+                gatsbyImageData
+                filename
+              }
+            }
+            ... on ContentfulText {
+              id
+              text {
+                raw
+              }
+            }
+            ... on ContentfulVideo {
+              id
+              url
             }
           }
         }
       }
+    }
+  }
     }
   `)
 
@@ -44,42 +78,24 @@ exports.createPages = async ({ graphql, actions }) => {
   }
   const { allContentfulPage } = result.data
 
-  const homeTemplate = path.resolve(`./src/templates/home.js`)
-  const blogTemplate = path.resolve(`./src/templates/blog.js`)
-  const videoTemplate = path.resolve(`./src/templates/video.js`)
-  const linkTemplate = path.resolve(`./src/templates/link.js`)
-  const contactTemplate = path.resolve(`./src/templates/contact.js`)
-  const imagesTemplate = path.resolve(`./src/templates/images.js`)
-
-  allContentfulPage.edges.forEach((edge) => {
-    let template
-    switch (edge.node.type) {
-      case "home":
-        template = homeTemplate
-        break
-      case "blog":
-        template = blogTemplate
-        break
-      case "video":
-        template = videoTemplate
-        break
-      case "link":
-        template = linkTemplate
-        break
-      case "contact":
-        template = contactTemplate
-        break
-      case "images":
-        template = imagesTemplate
-        break
-      default:
-        template = homeTemplate
-    }
+  allContentfulPage.edges.forEach(({ node }) => {
+    const homeTemplate = path.resolve(`./src/templates/project.js`);
 
     createPage({
-      path: edge.node.slug,
-      component: slash(template),
-      context: edge.node,
+      path: node.slug,
+      component: slash(homeTemplate),
+      context: {
+        id: node.contentful_id,
+        title: node.title,
+        slug: node.slug,
+        description: node.description,
+        content: node.contentList.map(content => content.item),
+      },
     })
   })
-}
+
+
+
+
+  
+  }

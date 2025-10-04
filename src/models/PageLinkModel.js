@@ -3,10 +3,9 @@ export class PageLinkModel {
     title;
     slug;
     type;
-    constructor(id, title, type, slug) {
+    constructor(id, title, slug) {
         this.id = id;
         this.title = title;
-        this.type = type;
         this.slug = slug;
     }
 

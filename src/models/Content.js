@@ -5,7 +5,8 @@ import { richTextOptions } from "../utility/richtext"
 import { ImageWrapper } from "../components/image-wrapper/image-wrapper"
 import { VideoPlayer } from "../components/video-player/video-player"
 import { ImageCarousel } from "../components/image-carousel/image-carousel"
-
+import { Colours } from "../index.styles"
+import styled from "styled-components"
 export class Content {
   id
   type
@@ -17,6 +18,14 @@ export class Content {
   }
 }
 
+
+const StyledLine = styled.hr`
+  width: 100%;
+  border: none;
+  border-top: 1px dotted ${Colours.dark_purple};
+  margin: 2rem 0;
+
+`
 export const renderContent = content => {
 
   if (content.image) {
@@ -37,6 +46,10 @@ export const renderContent = content => {
       JSON.parse(content.text.raw),
       richTextOptions
     )
+  }
+
+  if(content.show){
+    return <StyledLine />
   }
 
   return ""

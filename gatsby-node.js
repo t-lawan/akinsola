@@ -12,20 +12,13 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const result = await graphql(`
-    {
-allContentfulPage {
+{
+  allContentfulPage {
     edges {
       node {
         title
         slug
         contentful_id
-        description {
-          raw
-          references {
-            url
-            contentful_id
-          }
-        }
         link
         contentList {
           item {
@@ -46,6 +39,10 @@ allContentfulPage {
               id
               url
             }
+            ... on ContentfulDashedLine {
+              id
+              show
+            }
           }
           item {
             ... on ContentfulImage {
@@ -65,12 +62,16 @@ allContentfulPage {
               id
               url
             }
+            ... on ContentfulDashedLine {
+              id
+              show
+            }
           }
         }
       }
     }
   }
-    }
+}
   `)
 
   if (result.errors) {

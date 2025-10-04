@@ -19,6 +19,8 @@ const ContentWrapper = styled.div`
 const ProjectPage = context => {
 
   let page = context.pageContext
+
+  console.log(page)
   return (
     <Layout title={page.title} description={page.description}>
       {page.content.map((content, index) => (

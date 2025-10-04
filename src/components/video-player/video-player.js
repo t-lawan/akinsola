@@ -20,7 +20,7 @@ export const VideoPlayer = ({ url }) => {
 
   return (
     <VideoPlayerWrapper>
-      <ReactPlayer className='react-player' controls={true} width={"100%"} height={"100%"} url={url} />
+      <ReactPlayer className='react-player' controls={true} width={"100%"} height={"100%"} src={url} />
     </VideoPlayerWrapper>
   )
 }

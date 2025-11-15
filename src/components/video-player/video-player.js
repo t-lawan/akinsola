@@ -50,4 +50,3 @@ export const VideoPlayer = ({ url }) => {
     </VideoPlayerWrapper>
   )
 }
-<iframe width="100%" height="400" src="" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>

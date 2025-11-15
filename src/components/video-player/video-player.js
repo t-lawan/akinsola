@@ -25,6 +25,7 @@ export const VideoPlayer = ({ url }) => {
       className='react-player' 
       controls={true} width={"100%"} 
       height={"100%"} 
+      crossOrigin="true"
       src={url} 
             config={{
               mixcloud: {
@@ -42,7 +43,6 @@ export const VideoPlayer = ({ url }) => {
                   controls: 0,
                   rel:0,
                   iv_load_policy:3,
-                  origin: window.location.origin,
                 },
               },
             }}

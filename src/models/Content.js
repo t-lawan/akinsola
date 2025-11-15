@@ -1,7 +1,7 @@
 import React from "react"
 import { getImage } from "gatsby-plugin-image"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { richTextOptions } from "../utility/richtext"
+import { getRichTextOptions } from "../utility/richtext"
 import { ImageWrapper } from "../components/image-wrapper/image-wrapper"
 import { VideoPlayer } from "../components/video-player/video-player"
 import { ImageCarousel } from "../components/image-carousel/image-carousel"
@@ -44,7 +44,7 @@ export const renderContent = content => {
   if (content.text) {
     return documentToReactComponents(
       JSON.parse(content.text.raw),
-      richTextOptions
+      getRichTextOptions(content.text.references)
     )
   }
 

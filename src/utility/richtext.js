@@ -54,6 +54,35 @@ export const renderOptions = (links) => {
   }
 }
 
+export const getRichTextOptions = (references) => {
+  if (!references || references.length === 0) {
+    return richTextOptions;
+  }
+
+  const assetMap = new Map();
+  for (const asset of references) {
+    if (asset.contentful_id) {
+      assetMap.set(asset.contentful_id, asset);
+    }
+  }
+
+  return {
+    ...richTextOptions,
+    renderNode: {
+      ...richTextOptions.renderNode,
+      [INLINES.ASSET_HYPERLINK]: (node, children) => {
+        const entry = assetMap.get(node.data.target.sys.id);
+        return (
+          <EXTERNALLINK href={entry.file.url} target="__blank">
+            {" "}
+            {children}{" "}
+          </EXTERNALLINK>
+        )
+      },
+    }
+  }
+}
+
 export const richTextOptions = {
   renderMark: {
     [MARKS.BOLD]: (text) => <strong>{text}</strong>,
@@ -68,14 +97,6 @@ export const richTextOptions = {
       <EXTERNALLINK href={node.data.uri} target="__blank">
         {children}
       </EXTERNALLINK>
-    ),
-    [INLINES.ASSET_HYPERLINK]: (node, children) => {
-      return (
-        <EXTERNALLINK href={"node.data.target"} target="__blank">
-          {" "}
-          {children}{" "}
-        </EXTERNALLINK>
-      )
-    },
+    )
   },
 }

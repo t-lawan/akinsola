@@ -33,6 +33,17 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               text {
                 raw
+                references {
+                  ... on ContentfulAsset {
+                  contentful_id  
+                  title
+                    file {
+                      url
+                      fileName
+                      contentType
+                    }
+                  }
+                }
               }
             }
             ... on ContentfulVideo {

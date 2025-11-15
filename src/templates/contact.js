@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo/seo"
-import { renderOptions, richTextOptions } from "../utility/richtext"
+import { renderOptions } from "../utility/richtext"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Convert } from "../utility/convert"
 

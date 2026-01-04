@@ -23,7 +23,8 @@ export const VideoPlayer = ({ url }) => {
     <VideoPlayerWrapper>
       <ReactPlayer 
       className='react-player' 
-      controls={true} width={"100%"} 
+      // controls={true} 
+      width={"100%"} 
       height={"100%"} 
       crossOrigin="anonymous"
       src={url} 
@@ -40,7 +41,7 @@ export const VideoPlayer = ({ url }) => {
                   showinfo: 0,
                   color: "white",
                   theme: "light",
-                  controls: 0,
+                  // controls: 0,
                   rel:0,
                   iv_load_policy:3,
                 },

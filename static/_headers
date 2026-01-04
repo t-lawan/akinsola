@@ -1,0 +1,3 @@
+/*
+  X-Frame-Options: ALLOW-FROM https://www.youtube.com
+  Content-Security-Policy: frame-src 'self' https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com

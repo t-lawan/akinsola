@@ -27,6 +27,7 @@ export const VideoPlayer = ({ url }) => {
       width={"100%"} 
       height={"100%"} 
       crossOrigin="anonymous"
+      
       src={url} 
             config={{
               mixcloud: {
@@ -44,6 +45,7 @@ export const VideoPlayer = ({ url }) => {
                   // controls: 0,
                   rel:0,
                   iv_load_policy:3,
+                  origin: 'https://akinsola.net'
                 },
               },
             }}

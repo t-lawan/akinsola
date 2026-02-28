@@ -45,7 +45,8 @@ export const VideoPlayer = ({ url }) => {
                   // controls: 0,
                   rel:0,
                   iv_load_policy:3,
-                  origin: 'https://akinsola.net'
+                  origin: 'https://akinsola.net',
+                  referrerpolicy: 'strict-origin-when-cross-origin',
                 },
               },
             }}

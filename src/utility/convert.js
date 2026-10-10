@@ -30,14 +30,41 @@ export class Convert {
                 images.push(image.image)
             })
         }
+        
+        let exhibitions = [];
+        if(contentfulModel.exhibitions){   
+            contentfulModel.exhibitions.forEach(exhibition => {
+                exhibitions.push(Convert.toExhibitionModel(exhibition))
+            })
+        }
 
         return new PageInfoModel(
             contentfulModel.contentful_id,
             contentfulModel.title,
             contentfulModel.description.description,
             images,
-            navbarList
+            navbarList,
+            exhibitions
         )
+    }
+
+    static toExhibitionModel = contentfulModel => {
+        return {
+            title: contentfulModel.title,
+            type: contentfulModel.type,
+            date: contentfulModel.date,
+            space: contentfulModel.space,
+            location: contentfulModel.location,
+            workTitle: contentfulModel.workTitle,
+            year: contentfulModel.date ? new Date(contentfulModel.date).getFullYear() : null
+        }
+    }
+
+    static toIntroductionModel = contentfulModel => {
+        return {
+            title: contentfulModel.title,
+            description: contentfulModel.description,
+        }
     }
 
     static toNavbarLinkModel = contentfulModel => {

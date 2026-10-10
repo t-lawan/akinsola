@@ -39,16 +39,6 @@ export const VideoPlayer = ({ url }) => {
           },
           youtube: {
             referrerpolicy: 'strict-origin-when-cross-origin',
-
-            // playerVars: {
-            //   showinfo: 0,
-            //   color: "white",
-            //   theme: "light",
-            //   // controls: 0,
-            //   rel: 0,
-            //   iv_load_policy: 3,
-            //   origin: 'https://akinsola.net',
-            // },
           },
         }}
       />

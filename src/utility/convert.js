@@ -24,9 +24,18 @@ export class Convert {
             });
         }
 
+        let images = [];
+        if(contentfulModel.images){
+            contentfulModel.images.forEach(image => {
+                images.push(image.image)
+            })
+        }
+
         return new PageInfoModel(
             contentfulModel.contentful_id,
             contentfulModel.title,
+            contentfulModel.description.description,
+            images,
             navbarList
         )
     }

@@ -5,6 +5,10 @@ import styled from 'styled-components'
 import { size } from "../index.styles";
 import { connect } from "react-redux"
 import Navbar from "../components/navbar/navbar";
+import { graphql, useStaticQuery } from "gatsby";
+import { Convert } from "../utility/convert";
+import { ImageCarousel } from "../components/image-carousel/image-carousel";
+import { ContentWrapper } from "../templates/project";
 
 const MobileIndexWrapper = styled.div`
   display: none;
@@ -14,15 +18,40 @@ const MobileIndexWrapper = styled.div`
 `
 
 const IndexPage = (props) => {
-  
+  let data = useStaticQuery(graphql`
+      {
+        contentfulPageInfo {
+          contentful_id
+          title
+          description {
+            description
+          }
+          images {
+            image {
+              gatsbyImageData
+              filename
+            }
+          }
+        }
+      }
+    `)
+
+  const info = Convert.toPageInfoModel(data.contentfulPageInfo)
+
+
   return (
-  <Layout>
-     <Seo title="+" />
-     <MobileIndexWrapper>
-       <Navbar $showInMobile={true} reverse={true} />
-     </MobileIndexWrapper>
-  </Layout>
-)}
+    <Layout>
+      <Seo title="+" />
+      <MobileIndexWrapper>
+        <Navbar $showInMobile={true} reverse={true} />
+      </MobileIndexWrapper>
+      <ContentWrapper>
+        <ImageCarousel images={info.images} />
+      </ContentWrapper>
+
+    </Layout>
+  )
+}
 const mapStateToProps = state => {
   return {
     page_info: state.page_info

@@ -4,7 +4,7 @@ import { size } from "../index.styles"
 import { renderContent } from "../models/Content"
 import Layout from "../components/layout/layout"
 
-const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div`
   padding: 0 0 1rem 0;
   display: flex;
   flex-direction: column;

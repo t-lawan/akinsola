@@ -10,6 +10,8 @@ import { Convert } from "../utility/convert";
 import { ContentWrapper } from "../templates/project";
 import Exhibitions from "../components/cv/exhibitions";
 import Introduction from "../components/cv/introduction";
+import Awards from "../components/cv/awards";
+import Education from "../components/cv/education";
 
 const MobileIndexWrapper = styled.div`
   display: none;
@@ -35,13 +37,13 @@ const CVPage = (props) => {
       location
       workTitle
     }
+    awards
+    education
   }
 }
     `)
 
     const info = Convert.toPageInfoModel(data.contentfulPageInfo)
-        console.log('PROPS', info);
-
 
     return (
         <Layout>
@@ -51,7 +53,9 @@ const CVPage = (props) => {
             </MobileIndexWrapper>
             <ContentWrapper>
                 <Introduction info={info} />
+                <Education info={info} />
                 <Exhibitions exhibitions={info.exhibitions} />
+                <Awards info={info} />
             </ContentWrapper>
 
         </Layout>

@@ -44,7 +44,9 @@ export class Convert {
             contentfulModel.description.description,
             images,
             navbarList,
-            exhibitions
+            exhibitions,
+            contentfulModel.awards,
+            contentfulModel.education
         )
     }
 

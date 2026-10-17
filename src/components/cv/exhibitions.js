@@ -11,6 +11,12 @@ const ExhibitionType = styled.span`
   font-style: italic;
 `
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+`
+
 const Title = styled.p`
     font-weight: bold;
     font-style: italic;
@@ -21,14 +27,14 @@ const Exhibitions = (props) => {
     props.exhibitions.sort((a, b) => b.date.localeCompare(a.date))
 
     return (
-        <div>
+        <Container>
             <Title>Exhibitions</Title>
             {props.exhibitions.map((exhibition, index) => (
                 <div key={index}>
                     <MainText>{exhibition.year}: `{exhibition.workTitle}`/ {exhibition.title}/ {exhibition.space}, {exhibition.location} <ExhibitionType>({exhibition.type})</ExhibitionType></MainText>
                 </div>
             ))}
-        </div>
+        </Container>
     )
 }
 
